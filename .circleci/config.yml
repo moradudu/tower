@@ -33,9 +33,12 @@ jobs:
             - "/go/pkg/mod"
       - run:
           name: Run build
-          command: make all
-      - store_test_results:
-          path: /tmp/test-reports
+          command: |
+            make all;
+            cp bin/agent /tmp/tower-artifacts;
+            cp bin/proxy /tmp/tower-artifacts;
+      - store_artifacts:
+          path: /tmp/tower-artifacts
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/workflows/ & https://circleci.com/docs/configuration-reference/#workflows
