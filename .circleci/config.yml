@@ -37,8 +37,9 @@ jobs:
             make all;
             cp bin/agent /tmp/tower-artifacts;
             cp bin/proxy /tmp/tower-artifacts;
+            ls -la  /tmp/tower-artifacts;
       - store_artifacts:
-          path: /tmp/tower-artifacts
+          path: bin/
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/workflows/ & https://circleci.com/docs/configuration-reference/#workflows
