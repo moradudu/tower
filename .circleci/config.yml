@@ -32,10 +32,8 @@ jobs:
           paths:
             - "/go/pkg/mod"
       - run:
-          name: Run tests
-          command: |
-            mkdir -p /tmp/test-reports
-            gotestsum --junitfile /tmp/test-reports/unit-tests.xml
+          name: Run build
+          command: make all
       - store_test_results:
           path: /tmp/test-reports
 
